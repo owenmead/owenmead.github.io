@@ -1,0 +1,187 @@
+@import "compass/css3/opacity";
+
+body {
+    color: #09182B;
+    background-color: #FFF;
+    background: url('../img/cloud-background.jpg') repeat-x center top;
+    font-family: "ColaborateLightRegular", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h4,h5,h6 {
+    margin: 0;
+    font-weight: normal;
+    font-family: "ColaborateMediumRegular", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h5 {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #0B4184;
+    text-decoration: underline;
+}
+a:hover {
+    color: #0088cc;
+}
+
+.lead {
+    color: #FFF;
+    
+    & > span {
+        margin: 0 0.33em;
+    }
+}
+
+img.logo {
+    margin: 2em 0 1.5em;
+}
+
+.about-block {
+    & h3 {
+        margin-top: 0;
+        margin-right: 0.5em;
+        @include opacity(0.66);
+    }
+}
+
+.top-bar {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.about.row {
+    margin-bottom: 2em;
+}
+
+
+hr.project-seperator {
+    border-bottom: none;
+    border-top: 1px solid #000;
+    @include opacity(0.10);
+    margin: 1em 0;
+}
+
+@media (min-width: 767px) {
+    .about-block {
+        text-align: right;
+    }
+    
+    .lead {
+        letter-spacing: 1px;
+    }
+
+    .top-bar {
+        margin-bottom: 3em;
+    }
+    hr.project-seperator {
+        margin: 3em 0;
+    }    
+    img.logo {
+        margin: 4em 0 1.5em;
+    }
+    .about.row.last {
+        margin-bottom: 3em;
+    }
+}
+
+div.about {
+}
+
+.quote-block {
+    margin-top: 0.5em;
+    font-family: Georgia, times, serif;
+    @include opacity(0.66);
+    font-size: 12px;
+}
+.quote-block:before {
+    float: left;
+    padding-right: 2px;
+    content: '\201C';
+    font-size: 400%;
+    opacity: 0.5;
+    position: relative;
+    top: 10px;
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #000;
+    background: #333 url('../img/footer_bg.png') repeat;
+    color: #FFF;
+    padding: 2em;
+    
+    & h5 {
+        text-align: right;
+    }
+    
+    & a {
+        color: #FFF;
+    }
+}
+
+
+//  _____                                        _           
+// |_   _|   _ _ __   ___   __ _ _ __ __ _ _ __ | |__  _   _ 
+//   | || | | | '_ \ / _ \ / _` | '__/ _` | '_ \| '_ \| | | |
+//   | || |_| | |_) | (_) | (_| | | | (_| | |_) | | | | |_| |
+//   |_| \__, | .__/ \___/ \__, |_|  \__,_| .__/|_| |_|\__, |
+//       |___/|_|          |___/          |_|          |___/
+
+@font-face {
+    font-family: 'ColaborateThinRegular';
+    src: url('../fonts/ColabThi-webfont.eot');
+    src: url('../fonts/ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabThi-webfont.woff') format('woff'),
+         url('../fonts/ColabThi-webfont.ttf') format('truetype'),
+         url('../fonts/ColabThi-webfont.svg#ColaborateThinRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ColaborateLightRegular';
+    src: url('../fonts/ColabLig-webfont.eot');
+    src: url('../fonts/ColabLig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabLig-webfont.woff') format('woff'),
+         url('../fonts/ColabLig-webfont.ttf') format('truetype'),
+         url('../fonts/ColabLig-webfont.svg#ColaborateLightRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ColaborateRegular';
+    src: url('../fonts/ColabReg-webfont.eot');
+    src: url('../fonts/ColabReg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabReg-webfont.woff') format('woff'),
+         url('../fonts/ColabReg-webfont.ttf') format('truetype'),
+         url('../fonts/ColabReg-webfont.svg#ColaborateRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ColaborateMediumRegular';
+    src: url('../fonts/ColabMed-webfont.eot');
+    src: url('../fonts/ColabMed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabMed-webfont.woff') format('woff'),
+         url('../fonts/ColabMed-webfont.ttf') format('truetype'),
+         url('../fonts/ColabMed-webfont.svg#ColaborateMediumRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ColaborateBoldRegular';
+    src: url('../fonts/ColabBol-webfont.eot');
+    src: url('../fonts/ColabBol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabBol-webfont.woff') format('woff'),
+         url('../fonts/ColabBol-webfont.ttf') format('truetype'),
+         url('../fonts/ColabBol-webfont.svg#ColaborateBoldRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
