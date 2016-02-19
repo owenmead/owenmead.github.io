@@ -8,29 +8,46 @@
 		height: 100%;
 	}
 
-	@keyframes stuff {
-		from {
-			left: -37vw;
-		}
-		to {
-			left: -109vw;
-		}
+	@keyframes range-back {
+		from { left: -11vw; }
+		to   { left: -144vw; }
+	}
+	@keyframes range-middle {
+		from { left: -11vw; }
+		to   { left: -153vw; }
+	}
+	@keyframes range-front {
+		from { left: -20vw; }
+		to   { left: -233vw; }
 	}
 
 	div.range {
 		white-space: nowrap;
 		position: relative;
-		animation-name: stuff;
 		animation-iteration-count: infinite;
-		animation-duration: 4s;
 		animation-timing-function: linear;
+
+		/* Kick the hardware graphics into gear */
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+	}
+	div.range-back {
+		animation-name: range-back;
+		animation-duration: 30s;
+	}
+	div.range-middle {
+		animation-name: range-middle;
+		animation-duration: 28s;
+	}
+	div.range-front {
+		animation-name: range-front;
+		animation-duration: 36s;
 	}
 
 	div.range > div {
 		display: inline-block;
-		border: 1px solid #F00;
 		position: relative;
-		height: 10vw;
+		height: 7vw;
 		width: 10vw;
 	}
 	div.range > div:after {
@@ -38,7 +55,7 @@
 		border: 10vw solid transparent;
 		border-bottom: 10vw solid #000;
 		height: 0px;
-		width:  0px;
+		width:  1px;
 		transform: translateY(-10vw);
 		position: absolute;
 	}
@@ -47,13 +64,22 @@
 		margin-right: 10vw;
 	}
 	div.range > div.b {
-		transform: scale(1.5);
+		transform: scale(1.5) skew(-4deg);
 		margin-right: 5vw;
 	}
 	div.range > div.c {
 		transform: scale(3);
 		margin-right: 15vw;
 	}
+	div.range > div.d {
+		transform: scale(1.75, 1.25) skew(10deg);
+		margin-right: 7.5vw;
+	}
+	div.range > div.e {
+		transform: scale(1.25, 1);
+		margin-right: 2.5vw;
+	}
+
 
 
 
@@ -69,21 +95,86 @@
 	</style>
 </head>
 <body>
-<br><br>
-	<div class="range">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+	<div class="range range-back">
 		<div class=""></div>
 		<div class="a"></div>
 		<div class="b"></div>
 		<div class="c"></div>
 		<div class=""></div>
+		<div class="b"></div>
 		<div class="a"></div>
 		<div class="b"></div>
-		<div class="c"></div>
+
 		<div class=""></div>
 		<div class="a"></div>
 		<div class="b"></div>
 		<div class="c"></div>
+		<div class=""></div>
+		<div class="b"></div>
+		<div class="a"></div>
+		<div class="b"></div>
 	</div>
+
+	<div class="haze"></div>
+
+	<div class="range range-middle">
+		<div class="b"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+
+		<div class="b"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+	</div>
+
+	<div class="haze"></div>
+
+	<div class="range range-front">
+		<div class="c"></div>
+		<div class="d"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+
+		<div class="c"></div>
+		<div class="d"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+		<div class="b"></div>
+	</div>
+
 	<div class="haze"></div>
 
 </body>
