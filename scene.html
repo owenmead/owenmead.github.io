@@ -81,16 +81,72 @@
 	}
 
 
+	@keyframes day-shift {
+		0% {
+			background-color: hsla(0, 100%, 0%, 0.25);
+		}
+		25% {
+			background-color: hsla(0, 100%, 0%, 0.25);
+		}
+		33% {
+			background-color: hsla(13, 46%, 50%, 0.15);
+		}
+		47% {
+			background-color: hsla(180, 15%, 50%, 0.10);
+		}
+		60% {
+			background-color: hsla(180, 15%, 50%, 0.10);
+		}
+		66% {
+			background-color: hsla(13, 20%, 50%, 0.15);
+		}
+		75% {
+			background-color: hsla(0, 100%, 0%, 0.25);
+		}
+		100% {
+			background-color: hsla(0, 100%, 0%, 0.25);
+		}
+	}
+	@keyframes night-shift {
+		0% {
+			background-color: hsla(0, 100%, 0%, 0.42);
+		}
+		20% {
+			background-color: hsla(0, 100%, 0%, 0.42);
+		}
+		33% {
+			background-color: hsla(0, 100%, 0%, 0.0);
+		}
+		66% {
+			background-color: hsla(0, 100%, 0%, 0.0);
+		}
+		70% {
+			background-color: hsla(0, 100%, 0%, 0.22);
+		}
+		100% {
+			background-color: hsla(0, 100%, 0%, 0.42);
+		}
+	}
 
+	/* todo - make main page unscrollable */
 
 	div.haze {
+		animation-name: day-shift;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
+
+
 		position: absolute;
 		top: 0; left: 0; right: 0; bottom: 0;
-		background-image:
-			linear-gradient(
-				rgba(71, 149, 141, 0.5),
-				rgba(71, 149, 141, 0.25)
-			);
+	}
+	div.haze:after {
+		content: '';
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+
+		animation-name: night-shift;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
 	}
 	</style>
 </head>
