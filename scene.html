@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Stuff</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content ="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
 	<style>
 	body,html {
 		height: 100%;
@@ -27,48 +28,48 @@
 		content: '';
 		position: absolute;
 		left: 0; right: 0;
-		height: 8vw;
-		border-bottom: 18vw solid black;
+		height: 8vh;
+		border-bottom: 18vh solid black;
 	}
 
 
 	div.range > div {
 		display: inline-block;
 		position: relative;
-		height: 7vw;
-		width: 10vw;
+		height: 7vh;
+		width: 10vh;
 
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}
 	@keyframes range-back {
-		from { left: -11vw; }
-		to   { left: -144vw; }
+		from { left: -11vh; }
+		to   { left: -144vh; }
 	}
 	@keyframes range-middle {
-		from { left: -11vw; }
-		to   { left: -153vw; }
+		from { left: -11vh; }
+		to   { left: -153vh; }
 	}
 	@keyframes range-front {
-		from { left: -20vw; }
-		to   { left: -233vw; }
+		from { left: -20vh; }
+		to   { left: -233vh; }
 	}
 	div.range-back {
-		bottom: 20vw;
+		bottom: 20vh;
 	}
 	div.range-back > div {
 		animation-name: range-back;
 		animation-duration: 80s;
 	}
 	div.range-middle {
-		bottom: 10vw;
+		bottom: 10vh;
 	}
 	div.range-middle > div {
 		animation-name: range-middle;
 		animation-duration: 58s;
 	}
 	div.range-front {
-		bottom: 2vw;
+		bottom: 2vh;
 	}
 	div.range-front > div {
 		animation-name: range-front;
@@ -76,33 +77,33 @@
 	}
 	div.range > div:after {
 		content: '';
-		border: 10vw solid transparent;
-		border-bottom: 10vw solid black;
+		border: 10vh solid transparent;
+		border-bottom: 10vh solid black;
 		height: 0px;
 		width:  1px;
-		transform: translateY(-10vw);
+		transform: translateY(-10vh);
 		position: absolute;
 	}
 
 	div.range > div.a {
 		transform: scale(2);
-		margin-right: 10vw;
+		margin-right: 10vh;
 	}
 	div.range > div.b {
 		transform: scale(1.5) skew(-4deg);
-		margin-right: 5vw;
+		margin-right: 5vh;
 	}
 	div.range > div.c {
 		transform: scale(3);
-		margin-right: 15vw;
+		margin-right: 15vh;
 	}
 	div.range > div.d {
 		transform: scale(1.75, 1.25) skew(10deg);
-		margin-right: 7.5vw;
+		margin-right: 7.5vh;
 	}
 	div.range > div.e {
 		transform: scale(1.25, 1);
-		margin-right: 2.5vw;
+		margin-right: 2.5vh;
 	}
 
 
@@ -134,10 +135,10 @@
 	}
 	@keyframes day-grade {
 		0% {
-			opacity: 0.2;
+			opacity: 0;
 		}
 		15% {
-			opacity: 0.2;
+			opacity: 0.1;
 		}
 		25% {
 			opacity: 1;
@@ -146,10 +147,10 @@
 			opacity: 1;
 		}
 		80% {
-			opacity: 0.2;
+			opacity: 0.1;
 		}
 		100% {
-			opacity: 0.2;
+			opacity: 0;
 		}
 	}
 
@@ -212,14 +213,14 @@
 		height: 1px; width: 1px;
 		border-radius: 2px;
 		background-color: rgba(255, 255, 255, 1);
-		margin-left: 1vw;
+		margin-left: 1vh;
 	}
-	div.stars > span:nth-child(2n+1)   { margin-left: 5vw; width: 2px; height: 2px; background-color: rgba(255, 255, 255, 0.25); }
-	div.stars > span:nth-child(3n+1)   { margin-left: 5vw; width: 3px; height: 3px; background-color: rgba(255, 255, 255, 0.5);  }
-	div.stars > span:nth-child(12n+3)  { margin-left: 7vw;  }
-	div.stars > span:nth-child(7n)     { margin-left: 3vw;  }
-	div.stars > span:nth-child(9n+5)   { margin-left: 12vw; }
-	div.stars > span:nth-child(20n+10) { margin-left: 2vw; }
+	div.stars > span:nth-child(2n+1)   { margin-left: 5vh; width: 2px; height: 2px; background-color: rgba(255, 255, 255, 0.25); }
+	div.stars > span:nth-child(3n+1)   { margin-left: 5vh; width: 3px; height: 3px; background-color: rgba(255, 255, 255, 0.5);  }
+	div.stars > span:nth-child(12n+3)  { margin-left: 7vh;  }
+	div.stars > span:nth-child(7n)     { margin-left: 3vh;  }
+	div.stars > span:nth-child(9n+5)   { margin-left: 12vh; }
+	div.stars > span:nth-child(20n+10) { margin-left: 2vh; }
 
 	div.stars > span:nth-child(n+100)  { opacity: 0.80; }
 	div.stars > span:nth-child(n+150)  { opacity: 0.60; }
@@ -227,9 +228,6 @@
 	div.stars > span:nth-child(n+250)  { opacity: 0.20; }
 	div.stars > span:nth-child(n+300)  { opacity: 0.5; }
 
-	div.sky {
-		height: 50vh;
-	}
 	</style>
 </head>
 <body>
@@ -341,11 +339,68 @@
 		<div class="b"></div>
 		<div class="a"></div>
 		<div class="b"></div>
+
+		<div class=""></div>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+		<div class=""></div>
+		<div class="b"></div>
+		<div class="a"></div>
+		<div class="b"></div>
+
+		<div class=""></div>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+		<div class=""></div>
+		<div class="b"></div>
+		<div class="a"></div>
+		<div class="b"></div>
+
+		<div class=""></div>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+		<div class=""></div>
+		<div class="b"></div>
+		<div class="a"></div>
+		<div class="b"></div>
 	</div>
 
 	<div class="haze"></div>
 
 	<div class="range range-middle">
+		<div class="b"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+
+		<div class="b"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+
+		<div class="b"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+
 		<div class="b"></div>
 		<div class="d"></div>
 		<div class="e"></div>
@@ -390,6 +445,37 @@
 		<div class="e"></div>
 		<div class="c"></div>
 		<div class="b"></div>
+		<div class="e"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+
+		<div class="c"></div>
+		<div class="d"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+
+		<div class="c"></div>
+		<div class="d"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+		<div class="c"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="e"></div>
+		<div class="c"></div>
 	</div>
 
 	<div class="haze"></div>
