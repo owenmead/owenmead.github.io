@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Stuff</title>
+	<title>Scene</title>
 	<meta name="viewport" content ="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<style>
@@ -28,7 +28,7 @@
 		content: '';
 		position: absolute;
 		left: 0; right: 0;
-		height: 8vh;
+		height: 25vh;
 		border-bottom: 18vh solid black;
 	}
 
@@ -41,46 +41,34 @@
 
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
+		animation-name: range-move;
 	}
-	@keyframes range-back {
-		from { left: -11vh; }
-		to   { left: -144vh; }
-	}
-	@keyframes range-middle {
-		from { left: -11vh; }
-		to   { left: -153vh; }
-	}
-	@keyframes range-front {
-		from { left: -20vh; }
-		to   { left: -233vh; }
+	@keyframes range-move {
+		from { left: -10% }
+		to   { left: -30%; }
 	}
 	div.range-back {
 		bottom: 40vh;
 	}
 	div.range-back > div {
-		animation-name: range-back;
-		animation-duration: 8s;
+		animation-duration: 2s;
 	}
 	div.range-middle {
 		bottom: 25vh;
 	}
 	div.range-middle > div {
-		animation-name: range-middle;
-		animation-duration: 6s;
+		animation-duration: 2s;
 	}
 	div.range-front {
 		bottom: 10vh;
 	}
 	div.range-front > div {
-		animation-name: range-front;
-		animation-duration: 6s;
+		animation-duration: 2s;
 	}
 	div.range > div:after {
 		content: '';
 		border: 10vh solid transparent;
 		border-bottom: 10vh solid black;
-		height: 0px;
-		width:  1px;
 		transform: translateY(-10vh);
 		position: absolute;
 	}
@@ -427,7 +415,7 @@
 		<div class="b"></div>
 		<div class="e"></div>
 		<div class="b"></div>
-		<div class="c"></div>
+		<div class="a"></div>
 
 		<div class="c"></div>
 		<div class="d"></div>
@@ -436,7 +424,7 @@
 		<div class="b"></div>
 		<div class="e"></div>
 		<div class="b"></div>
-		<div class="c"></div>
+		<div class="a"></div>
 
 		<div class="c"></div>
 		<div class="d"></div>
@@ -445,7 +433,7 @@
 		<div class="b"></div>
 		<div class="e"></div>
 		<div class="b"></div>
-		<div class="c"></div>
+		<div class="a"></div>
 
 		<div class="c"></div>
 		<div class="d"></div>
@@ -454,7 +442,16 @@
 		<div class="b"></div>
 		<div class="e"></div>
 		<div class="b"></div>
+		<div class="a"></div>
+
 		<div class="c"></div>
+		<div class="d"></div>
+		<div class="a"></div>
+		<div class="d"></div>
+		<div class="b"></div>
+		<div class="e"></div>
+		<div class="b"></div>
+		<div class="a"></div>
 	</div>
 
 	<div class="haze"></div>
