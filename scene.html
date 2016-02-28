@@ -8,6 +8,40 @@
 		height: 100%;
 	}
 
+	body {
+		margin: 0;
+		background-color: black;
+		overflow: hidden;
+	}
+
+	div.range {
+		white-space: nowrap;
+		position: relative;
+		z-index: 2;
+		/* Kick the hardware graphics into gear */
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+
+		margin-top: 5vw;
+	}
+	div.range:after {
+		content: '';
+		position: absolute;
+		left: 0; right: 0;
+		height: 8vw;
+		border-bottom: 18vw solid black;
+	}
+
+
+	div.range > div {
+		display: inline-block;
+		position: relative;
+		height: 7vw;
+		width: 10vw;
+
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
 	@keyframes range-back {
 		from { left: -11vw; }
 		to   { left: -144vw; }
@@ -20,45 +54,28 @@
 		from { left: -20vw; }
 		to   { left: -233vw; }
 	}
-
-	div.range {
-		white-space: nowrap;
-		position: relative;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
-
-		/* Kick the hardware graphics into gear */
-		transform: translate3d(0, 0, 0);
-		backface-visibility: hidden;
-	}
-	div.range-back {
+	div.range-back > div {
 		animation-name: range-back;
-		animation-duration: 30s;
+		animation-duration: 80s;
 	}
-	div.range-middle {
+	div.range-middle > div {
 		animation-name: range-middle;
-		animation-duration: 28s;
+		animation-duration: 58s;
 	}
-	div.range-front {
+	div.range-front > div {
 		animation-name: range-front;
-		animation-duration: 36s;
-	}
-
-	div.range > div {
-		display: inline-block;
-		position: relative;
-		height: 7vw;
-		width: 10vw;
+		animation-duration: 60s;
 	}
 	div.range > div:after {
 		content: '';
 		border: 10vw solid transparent;
-		border-bottom: 10vw solid #000;
+		border-bottom: 10vw solid black;
 		height: 0px;
 		width:  1px;
 		transform: translateY(-10vw);
 		position: absolute;
 	}
+
 	div.range > div.a {
 		transform: scale(2);
 		margin-right: 10vw;
@@ -83,60 +100,59 @@
 
 	@keyframes day-shift {
 		0% {
-			background-color: hsla(0, 100%, 0%, 0.25);
+			background-color: hsla(0, 0%, 25%, 0.2);
+		}
+		15% {
+			background-color: hsla(0, 0%, 25%, 0.2);
 		}
 		25% {
-			background-color: hsla(0, 100%, 0%, 0.25);
+			background-color: hsla(12, 90%, 80%, 0.25);
 		}
-		33% {
-			background-color: hsla(13, 46%, 50%, 0.15);
-		}
-		47% {
-			background-color: hsla(180, 15%, 50%, 0.10);
-		}
-		60% {
-			background-color: hsla(180, 15%, 50%, 0.10);
-		}
-		66% {
-			background-color: hsla(13, 20%, 50%, 0.15);
-		}
-		75% {
-			background-color: hsla(0, 100%, 0%, 0.25);
-		}
-		100% {
-			background-color: hsla(0, 100%, 0%, 0.25);
-		}
-	}
-	@keyframes night-shift {
-		0% {
-			background-color: hsla(0, 100%, 0%, 0.42);
-		}
-		20% {
-			background-color: hsla(0, 100%, 0%, 0.42);
-		}
-		33% {
-			background-color: hsla(0, 100%, 0%, 0.0);
-		}
-		66% {
-			background-color: hsla(0, 100%, 0%, 0.0);
+		30% {
+			background-color: hsla(180, 100%, 95%, 0.35);
 		}
 		70% {
-			background-color: hsla(0, 100%, 0%, 0.22);
+			background-color: hsla(180, 100%, 95%, 0.35);
+		}
+		75% {
+			background-color: hsla(0, 100%, 85%, 0.25);
+		}
+		80% {
+			background-color: hsla(0, 0%, 25%, 0.2);
 		}
 		100% {
-			background-color: hsla(0, 100%, 0%, 0.42);
+			background-color: hsla(0, 0%, 25%, 0.2);
 		}
 	}
-
-	/* todo - make main page unscrollable */
+	@keyframes day-grade {
+		0% {
+			opacity: 0.2;
+		}
+		15% {
+			opacity: 0.2;
+		}
+		25% {
+			opacity: 1;
+		}
+		75% {
+			opacity: 1;
+		}
+		80% {
+			opacity: 0.2;
+		}
+		100% {
+			opacity: 0.2;
+		}
+	}
 
 	div.haze {
 		animation-name: day-shift;
 		animation-duration: 10s;
 		animation-iteration-count: infinite;
-
+		animation-timing-function: linear;
 
 		position: absolute;
+		z-index: 2;
 		top: 0; left: 0; right: 0; bottom: 0;
 	}
 	div.haze:after {
@@ -144,19 +160,44 @@
 		position: absolute;
 		top: 0; left: 0; right: 0; bottom: 0;
 
-		animation-name: night-shift;
+		background-image: linear-gradient(0deg, hsla(0, 100%, 100%, 0), 80%, hsla(0, 100%, 100%, 0.20));
+		opacity: 0;
+
+		animation-name: day-grade;
 		animation-duration: 10s;
 		animation-iteration-count: infinite;
 	}
 
+	@keyframes star-shift {
+		0% {
+			opacity: 1;
+		}
+		25% {
+			opacity: 0.66;
+		}
+		30% {
+			opacity: 0;
+		}
+		70% {
+			opacity: 0;
+		}
+		75% {
+			opacity: 0.66;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 	div.stars {
-		position: relative;
+		position: absolute;
 		z-index: 1;
-		overflow: hidden;
-		height: 40vh;
 		margin-bottom: 15vh;
 
 		box-sizing: border-box;
+
+		animation-name: star-shift;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
 	}
 	div.stars > span {
 		display: inline-block;
@@ -165,12 +206,12 @@
 		background-color: rgba(255, 255, 255, 1);
 		margin-left: 1vw;
 	}
-	div.stars > span:nth-child(2n+1)   { margin-left: 3vw; width: 2px; height: 2px; background-color: rgba(255, 255, 255, 0.25); }
+	div.stars > span:nth-child(2n+1)   { margin-left: 5vw; width: 2px; height: 2px; background-color: rgba(255, 255, 255, 0.25); }
 	div.stars > span:nth-child(3n+1)   { margin-left: 5vw; width: 3px; height: 3px; background-color: rgba(255, 255, 255, 0.5);  }
 	div.stars > span:nth-child(12n+3)  { margin-left: 7vw;  }
-	div.stars > span:nth-child(7n)     { margin-left: 8vw;  }
-	div.stars > span:nth-child(9n+5)   { margin-left: 18vw; }
-	div.stars > span:nth-child(20n+10) { margin-left: 12vw; }
+	div.stars > span:nth-child(7n)     { margin-left: 3vw;  }
+	div.stars > span:nth-child(9n+5)   { margin-left: 12vw; }
+	div.stars > span:nth-child(20n+10) { margin-left: 2vw; }
 
 	div.stars > span:nth-child(n+100)  { opacity: 0.80; }
 	div.stars > span:nth-child(n+150)  { opacity: 0.60; }
@@ -271,6 +312,9 @@
 		<span></span><span></span><span></span><span></span>
 		<span></span><span></span><span></span><span></span>
 	</div>
+
+	<div class="haze"></div>
+
 	<div class="range range-back">
 		<div class=""></div>
 		<div class="a"></div>
