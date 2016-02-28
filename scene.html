@@ -16,13 +16,11 @@
 
 	div.range {
 		white-space: nowrap;
-		position: relative;
+		position: absolute;
 		z-index: 2;
 		/* Kick the hardware graphics into gear */
 		transform: translate3d(0, 0, 0);
 		backface-visibility: hidden;
-
-		margin-top: 5vw;
 	}
 	div.range:after {
 		content: '';
@@ -54,13 +52,22 @@
 		from { left: -20vw; }
 		to   { left: -233vw; }
 	}
+	div.range-back {
+		bottom: 20vw;
+	}
 	div.range-back > div {
 		animation-name: range-back;
 		animation-duration: 80s;
 	}
+	div.range-middle {
+		bottom: 10vw;
+	}
 	div.range-middle > div {
 		animation-name: range-middle;
 		animation-duration: 58s;
+	}
+	div.range-front {
+		bottom: 2vw;
 	}
 	div.range-front > div {
 		animation-name: range-front;
@@ -191,7 +198,7 @@
 	div.stars {
 		position: absolute;
 		z-index: 1;
-		margin-bottom: 15vh;
+		top: 0;
 
 		box-sizing: border-box;
 
