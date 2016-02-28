@@ -148,20 +148,129 @@
 		animation-duration: 10s;
 		animation-iteration-count: infinite;
 	}
+
+	div.stars {
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		height: 40vh;
+		margin-bottom: 15vh;
+
+		box-sizing: border-box;
+	}
+	div.stars > span {
+		display: inline-block;
+		height: 1px; width: 1px;
+		border-radius: 2px;
+		background-color: rgba(255, 255, 255, 1);
+		margin-left: 1vw;
+	}
+	div.stars > span:nth-child(2n+1)   { margin-left: 3vw; width: 2px; height: 2px; background-color: rgba(255, 255, 255, 0.25); }
+	div.stars > span:nth-child(3n+1)   { margin-left: 5vw; width: 3px; height: 3px; background-color: rgba(255, 255, 255, 0.5);  }
+	div.stars > span:nth-child(12n+3)  { margin-left: 7vw;  }
+	div.stars > span:nth-child(7n)     { margin-left: 8vw;  }
+	div.stars > span:nth-child(9n+5)   { margin-left: 18vw; }
+	div.stars > span:nth-child(20n+10) { margin-left: 12vw; }
+
+	div.stars > span:nth-child(n+100)  { opacity: 0.80; }
+	div.stars > span:nth-child(n+150)  { opacity: 0.60; }
+	div.stars > span:nth-child(n+200)  { opacity: 0.40; }
+	div.stars > span:nth-child(n+250)  { opacity: 0.20; }
+	div.stars > span:nth-child(n+300)  { opacity: 0.5; }
+
+	div.sky {
+		height: 50vh;
+	}
 	</style>
 </head>
 <body>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+	<div class="stars">
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span>
+	</div>
 	<div class="range range-back">
 		<div class=""></div>
 		<div class="a"></div>
