@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bop Drop</title>
+  <meta name="description" content="A festive physics-based merging puzzle game with family photos">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./global.css">
+</head>
+<body>
+  <!-- Snowfall background -->
+  <div class="snowfall"></div>
+
+  <!-- Confetti Container -->
+  <div id="confetti-container" class="confetti-container"></div>
+
+  <!-- Bop Celebration Overlay -->
+  <div id="bop-celebration" class="bop-celebration hidden">
+    <div class="bop-message">You got a bop!</div>
+    <div class="bop-sparkle"></div>
+  </div>
+
+  <div class="game-wrapper">
+    <!-- Main game area -->
+    <div class="game-container">
+      <div id="canvas-container"></div>
+
+      <!-- Game Over Modal -->
+      <div id="game-over-modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-ornament"></div>
+          <h2 id="game-over-title">Ho Ho Ho!</h2>
+          <p class="modal-subtitle">Game Over</p>
+          <p class="final-score">
+            <span class="score-label">Final Score</span>
+            <span id="final-score" class="score-number">0</span>
+          </p>
+          <button id="restart-btn" class="btn btn-primary">
+            <span>Play Again</span>
+            <span class="btn-shine"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="game-sidebar">
+      <div class="sidebar-content">
+        <header class="game-header">
+          <h1 class="game-title">Bop<br><span class="drop-text">Drop</span></h1>
+          <div class="title-ornament"></div>
+        </header>
+
+        <div class="stats-panel">
+          <div class="stat-item score-display">
+            <span class="stat-label">Score</span>
+            <span id="current-score" class="stat-value">0</span>
+          </div>
+
+          <div class="stat-item bop-counter-display">
+            <span class="stat-label">Bops</span>
+            <span id="bop-count" class="stat-value bop-value">0</span>
+          </div>
+
+          <div class="stat-item next-preview">
+            <span class="stat-label">Up Next</span>
+            <div class="preview-container">
+              <div class="preview-glow"></div>
+              <img id="next-ball-preview" class="next-ball-icon" src="./assets/img/ball-0.png" alt="Next family member">
+            </div>
+          </div>
+        </div>
+
+        <div class="christmas-decorations">
+          <div class="ornament ornament-1"></div>
+          <div class="ornament ornament-2"></div>
+          <div class="ornament ornament-3"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./lib/matter.js"></script>
+  <script src="./game.js"></script>
+</body>
+</html>

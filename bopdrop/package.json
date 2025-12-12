@@ -1,0 +1,16 @@
+{
+  "name": "balldrop",
+  "version": "1.0.0",
+  "description": "Family Ball Drop Game - Physics-based merging puzzle",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "process-images": "node process-images.js",
+    "serve": "npx http-server -p 8000"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.1"
+  }
+}

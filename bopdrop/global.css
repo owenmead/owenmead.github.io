@@ -1,0 +1,830 @@
+/* ==========================================
+   FAMILY CHRISTMAS BALL DROP
+   Cozy Christmas Evening Aesthetic
+   ========================================== */
+
+:root {
+  /* Christmas Color Palette */
+  --forest-green: #1a4d2e;
+  --deep-burgundy: #8b1538;
+  --warm-gold: #d4af37;
+  --soft-gold: #f4e4c1;
+  --cream: #faf8f3;
+  --night-sky: #0a1628;
+  --pine: #2d5f3f;
+  --candlelight: #ffd89b;
+
+  /* Semantic Colors */
+  --bg-primary: var(--night-sky);
+  --bg-canvas: #1a2332;
+  --bg-sidebar: var(--forest-green);
+  --accent-primary: var(--warm-gold);
+  --accent-secondary: var(--deep-burgundy);
+  --text-light: var(--cream);
+  --text-gold: var(--soft-gold);
+
+  /* Typography */
+  --font-display: 'Mountains of Christmas', serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* Game Dimensions */
+  --game-width: 768px;
+  --game-height: 100vh;
+  --sidebar-width: 320px;
+}
+
+/* ==========================================
+   Reset & Base
+   ========================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(180deg, var(--night-sky) 0%, #1a2840 100%);
+  color: var(--text-light);
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+/* ==========================================
+   Snowfall Animation
+   ========================================== */
+
+.snowfall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 70% 40%, white, transparent);
+  background-size: 200% 200%;
+  animation: snowfall 20s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes snowfall {
+  0% {
+    background-position: 0% 0%, 10% 0%, 20% 0%, 30% 0%, 40% 0%, 50% 0%, 60% 0%;
+  }
+  100% {
+    background-position: 0% 100%, 10% 100%, 20% 100%, 30% 100%, 40% 100%, 50% 100%, 60% 100%;
+  }
+}
+
+/* ==========================================
+   Layout
+   ========================================== */
+
+.game-wrapper {
+  display: flex;
+  height: 100vh;
+  max-width: 1600px;  /* Increased to accommodate wider canvas */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.game-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#canvas-container {
+  position: relative;
+  box-shadow:
+    0 0 60px rgba(212, 175, 55, 0.15),
+    inset 0 0 100px rgba(10, 22, 40, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+}
+
+/* ==========================================
+   Right Sidebar
+   ========================================== */
+
+.game-sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(165deg, var(--forest-green) 0%, var(--pine) 100%);
+  border-left: 2px solid rgba(212, 175, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    -10px 0 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 100px rgba(0, 0, 0, 0.2);
+}
+
+.game-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.15), transparent);
+  pointer-events: none;
+}
+
+.sidebar-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 32px;
+  z-index: 1;
+}
+
+/* ==========================================
+   Game Header
+   ========================================== */
+
+.game-header {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.game-title {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--soft-gold);
+  text-shadow:
+    2px 2px 0 var(--deep-burgundy),
+    4px 4px 20px rgba(212, 175, 55, 0.5);
+  letter-spacing: -0.02em;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+.drop-text {
+  padding-left: 24px;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow:
+      2px 2px 0 var(--deep-burgundy),
+      4px 4px 20px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    text-shadow:
+      2px 2px 0 var(--deep-burgundy),
+      4px 4px 30px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.title-ornament {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--warm-gold), var(--deep-burgundy));
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  box-shadow:
+    0 4px 20px rgba(212, 175, 55, 0.6),
+    inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.2);
+  animation: ornamentSway 4s ease-in-out infinite;
+}
+
+.title-ornament::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 10px;
+  background: #8b7355;
+  border-radius: 2px;
+}
+
+@keyframes ornamentSway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* ==========================================
+   Stats Panel
+   ========================================== */
+
+.stats-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.stat-item {
+  background: rgba(10, 22, 40, 0.4);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stat-item:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-gold);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--warm-gold);
+  line-height: 1;
+  text-shadow:
+    0 2px 10px rgba(212, 175, 55, 0.6),
+    0 0 30px rgba(212, 175, 55, 0.3);
+  animation: scoreGlow 2s ease-in-out infinite;
+}
+
+@keyframes scoreGlow {
+  0%, 100% {
+    text-shadow:
+      0 2px 10px rgba(212, 175, 55, 0.6),
+      0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 2px 15px rgba(212, 175, 55, 0.8),
+      0 0 40px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* ==========================================
+   Next Ball Preview
+   ========================================== */
+
+.next-preview {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.next-preview .stat-label {
+  margin-bottom: 12px;
+}
+
+.preview-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.preview-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent 70%);
+  border-radius: 50%;
+  animation: previewPulse 2s ease-in-out infinite;
+}
+
+@keyframes previewPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.next-ball-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 20px rgba(0, 0, 0, 0.3),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ==========================================
+   Christmas Decorations
+   ========================================== */
+
+.christmas-decorations {
+  margin-top: auto;
+  position: relative;
+  height: 200px;
+}
+
+.ornament {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 8px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 8px rgba(255, 255, 255, 0.2);
+}
+
+.ornament::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 8px;
+  background: #8b7355;
+  border-radius: 2px;
+}
+
+.ornament-1 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, var(--deep-burgundy), #5a0e27);
+  bottom: 120px;
+  left: 40px;
+  animation: ornamentSway 3s ease-in-out infinite;
+}
+
+.ornament-2 {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, var(--warm-gold), #b8941f);
+  bottom: 60px;
+  right: 50px;
+  animation: ornamentSway 4s ease-in-out infinite 0.5s;
+}
+
+.ornament-3 {
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle, #2d5f3f, var(--forest-green));
+  bottom: 140px;
+  right: 30px;
+  animation: ornamentSway 3.5s ease-in-out infinite 1s;
+}
+
+/* ==========================================
+   Game Over Modal
+   ========================================== */
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: linear-gradient(165deg, var(--forest-green), var(--pine));
+  border: 3px solid var(--warm-gold);
+  border-radius: 24px;
+  padding: 48px;
+  text-align: center;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 100px rgba(0, 0, 0, 0.2),
+    0 0 100px rgba(212, 175, 55, 0.3);
+  position: relative;
+  min-width: 400px;
+  animation: modalBounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes modalBounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-ornament {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--deep-burgundy), #5a0e27);
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.modal-ornament::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 15px;
+  background: #8b7355;
+  border-radius: 2px;
+}
+
+#game-over-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--soft-gold);
+  margin-bottom: 8px;
+  text-shadow:
+    2px 2px 0 var(--deep-burgundy),
+    4px 4px 20px rgba(212, 175, 55, 0.5);
+}
+
+.modal-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-gold);
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.final-score {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.score-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-gold);
+  opacity: 0.8;
+}
+
+.score-number {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--warm-gold);
+  line-height: 1;
+  text-shadow:
+    0 4px 20px rgba(212, 175, 55, 0.8),
+    0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+.btn {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--warm-gold), #b8941f);
+  color: var(--night-sky);
+  box-shadow:
+    0 6px 20px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 30px rgba(212, 175, 55, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 15px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover .btn-shine {
+  left: 100%;
+}
+
+/* ==========================================
+   Confetti System
+   ========================================== */
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  animation: confettiExplode 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes confettiExplode {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotateZ(0deg) scale(1);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) rotateZ(var(--rotate)) scale(0.3);
+  }
+}
+
+.confetti-piece.gold {
+  background: linear-gradient(135deg, var(--warm-gold), #f4e4c1);
+}
+
+.confetti-piece.burgundy {
+  background: linear-gradient(135deg, var(--deep-burgundy), #c71f4a);
+}
+
+.confetti-piece.green {
+  background: linear-gradient(135deg, var(--pine), #3d7a59);
+}
+
+.confetti-piece.cream {
+  background: linear-gradient(135deg, var(--cream), #ffffff);
+}
+
+.confetti-piece.circle {
+  border-radius: 50%;
+}
+
+.confetti-piece.square {
+  border-radius: 2px;
+}
+
+/* ==========================================
+   Bop Celebration Overlay
+   ========================================== */
+
+.bop-celebration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+  pointer-events: none;
+  animation: celebrationFadeIn 0.3s ease forwards;
+}
+
+.bop-celebration.hidden {
+  display: none;
+}
+
+@keyframes celebrationFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bop-message {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--warm-gold);
+  text-align: center;
+  text-shadow:
+    3px 3px 0 var(--deep-burgundy),
+    6px 6px 40px rgba(212, 175, 55, 0.9),
+    0 0 80px rgba(212, 175, 55, 0.6);
+  animation: bopMessageBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes bopMessageBounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bop-sparkle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4), transparent 70%);
+  border-radius: 50%;
+  animation: sparklePulse 1s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes sparklePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.9;
+  }
+}
+
+/* ==========================================
+   Bop Counter
+   ========================================== */
+
+/* Celebration animation for bop counter increment */
+.bop-counter-display.celebrate {
+  animation: bopCounterCelebrate 0.6s ease;
+}
+
+@keyframes bopCounterCelebrate {
+  0% {
+    transform: scale(1);
+    background: rgba(10, 22, 40, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    background: rgba(212, 175, 55, 0.3);
+    border-color: var(--warm-gold);
+  }
+  100% {
+    transform: scale(1);
+    background: rgba(10, 22, 40, 0.4);
+  }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .game-wrapper {
+    flex-direction: column;
+  }
+
+  .game-sidebar {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+  }
+
+  .sidebar-content {
+    flex-direction: row;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .game-header {
+    margin-bottom: 0;
+  }
+
+  .game-title {
+    font-size: 32px;
+  }
+
+  .stats-panel {
+    flex-direction: row;
+    flex: 1;
+  }
+
+  .christmas-decorations {
+    display: none;
+  }
+}
